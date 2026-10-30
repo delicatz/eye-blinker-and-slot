@@ -1,0 +1,102 @@
+
+<html>
+<head>
+
+    <title>Slot Machine</title>
+    
+    <!--add random.js here-->
+    <script src="random.js"></script>
+    <script>
+
+   
+        function spinslots(){
+            var credits = Number (document.getElementById("credits").value);
+            if(credits <=0){
+                document.getElementById("msgbox").innerHTML = "Out of credits! Add more money";
+
+                return;
+            }
+            credits = credits -1;
+           //complete the function
+           var num1 = RandomInt(1,3);
+           var num2 = RandomInt(1,3);
+           var num3 = RandomInt(1,3);
+
+           if(num1 == 1)
+           {
+             document.getElementById("image1").src="images/bar.jpg";
+           }
+           else if(num1 ==2)
+           {
+            document.getElementById("image1").src="images/cherry.jpg";
+           }
+           else 
+           {
+             document.getElementById("image1").src="images/donut.jpg";
+        }
+
+
+        if(num2 == 1)
+           {
+             document.getElementById("image2").src="images/bar.jpg";
+           }
+           else if(num2 ==2)
+           {
+            document.getElementById("image2").src="images/cherry.jpg";
+           }
+           else 
+           {
+             document.getElementById("image2").src="images/donut.jpg";
+        }
+
+
+        if(num3 == 1)
+           {
+             document.getElementById("image3").src="images/bar.jpg";
+           }
+           else if(num3 ==2)
+           {
+            document.getElementById("image3").src="images/cherry.jpg";
+           }
+           else 
+           {
+             document.getElementById("image3").src="images/donut.jpg";
+        }
+        
+
+        if(num1 == num2 && num2 == num3){
+            document.getElementById("msgbox").innerHTML ="Bingo! You won!";
+            credits=credits +10;
+        }else{
+            document.getElementById("msgbox").innerHTML ="Better luck next time";
+        }
+        document.getElementById("credits").value = credits;
+    }
+    </script>
+</head>
+<body>
+    <h1 style="text-align: center; color: navy;">CLICK TO WIN - PLAY ON-LINE SLOTS TODAY</h1>
+    <br>
+    <div style="text-align: center; ">
+        <img id="image1" src="images/bar.jpg" border="3" width="96" height="96" onmouseover=""> 
+        <img id="image2" src="images/bar.jpg" border="3" width="96" height="96" onmouseover="">
+        <img id="image3" src="images/bar.jpg" border="3" width="96" height="96" onmouseover="">
+        <br>
+
+        
+        <!--set the button input and click the function spinslots() -->
+        <input type="button" value="Click to spin" onclick="spinslots()">
+
+      
+
+        <br>
+        
+        <!--set the credit input -->
+        credits: <input type="text" id="credits" value="20">
+        
+                
+        <div style="border-style:groove; border-color:#98bf21" id="msgbox">Click Button To Play Game!</div>
+       
+    </div>
+</body>
+</html>
